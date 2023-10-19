@@ -70,136 +70,41 @@ fun CalculatorUi (modifier: Modifier = Modifier) {
         }
         Spacer(modifier = Modifier.height(70.dp))
         Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxWidth()) {
-            Row() {
-                Button(onClick = { /*TODO*/ }, colors = ButtonDefaults.buttonColors(Color(0xFFC3ECD2)), modifier = Modifier
-                    .padding(6.dp)
-                    .width(80.dp)
-                    .height(80.dp)) {
-                    Text(text = "AC", fontSize = 24.sp)
-                }
-                Button(onClick = { /*TODO*/ }, colors = ButtonDefaults.buttonColors(Color(0xFFC3ECD2)), modifier = Modifier
-                    .padding(6.dp)
-                    .width(80.dp)
-                    .height(80.dp)) {
-                    Text(text = "()", fontSize = 28.sp)
-                }
-                Button(onClick = { /*TODO*/ }, colors = ButtonDefaults.buttonColors(Color(0xFFC3ECD2)), modifier = Modifier
-                    .padding(6.dp)
-                    .width(80.dp)
-                    .height(80.dp)) {
-                    Text(text = "%", fontSize = 28.sp)
-                }
-                Button(onClick = { /*TODO*/ }, colors = ButtonDefaults.buttonColors(Color(0xFFC3ECD2)), modifier = Modifier
-                    .padding(6.dp)
-                    .width(80.dp)
-                    .height(80.dp)) {
-                    Text(text = "/", fontSize = 28.sp)
-                }
-            }
-            Row {
-                Button(onClick = { /*TODO*/ }, colors = ButtonDefaults.buttonColors(Color(0xFFC3ECD2)), modifier = Modifier
-                    .padding(6.dp)
-                    .width(80.dp)
-                    .height(80.dp)) {
-                    Text(text = "1", fontSize = 28.sp)
-                }
-                Button(onClick = { /*TODO*/ }, colors = ButtonDefaults.buttonColors(Color(0xFFC3ECD2)), modifier = Modifier
-                    .padding(6.dp)
-                    .width(80.dp)
-                    .height(80.dp)) {
-                    Text(text = "2", fontSize = 28.sp)
-                }
-                Button(onClick = { /*TODO*/ }, colors = ButtonDefaults.buttonColors(Color(0xFFC3ECD2)), modifier = Modifier
-                    .padding(6.dp)
-                    .width(80.dp)
-                    .height(80.dp)) {
-                    Text(text = "3", fontSize = 28.sp)
-                }
-                Button(onClick = { /*TODO*/ }, colors = ButtonDefaults.buttonColors(Color(0xFFC3ECD2)), modifier = Modifier
-                    .padding(6.dp)
-                    .width(80.dp)
-                    .height(80.dp)) {
-                    Text(text = "x", fontSize = 28.sp)
-                }
-            }
-            Row {
-                Button(onClick = { /*TODO*/ }, colors = ButtonDefaults.buttonColors(Color(0xFFC3ECD2)), modifier = Modifier
-                    .padding(6.dp)
-                    .width(80.dp)
-                    .height(80.dp)) {
-                    Text(text = "4", fontSize = 28.sp)
-                }
-                Button(onClick = { /*TODO*/ }, colors = ButtonDefaults.buttonColors(Color(0xFFC3ECD2)), modifier = Modifier
-                    .padding(6.dp)
-                    .width(80.dp)
-                    .height(80.dp)) {
-                    Text(text = "5", fontSize = 28.sp)
-                }
-                Button(onClick = { /*TODO*/ }, colors = ButtonDefaults.buttonColors(Color(0xFFC3ECD2)), modifier = Modifier
-                    .padding(6.dp)
-                    .width(80.dp)
-                    .height(80.dp)) {
-                    Text(text = "6", fontSize = 28.sp)
-                }
-                Button(onClick = { /*TODO*/ }, colors = ButtonDefaults.buttonColors(Color(0xFFC3ECD2)), modifier = Modifier
-                    .padding(6.dp)
-                    .width(80.dp)
-                    .height(80.dp)) {
-                    Text(text = "-", fontSize = 28.sp)
-                }
-            }
-            Row {
-                Button(onClick = { /*TODO*/ }, colors = ButtonDefaults.buttonColors(Color(0xFFC3ECD2)), modifier = Modifier
-                    .padding(6.dp)
-                    .width(80.dp)
-                    .height(80.dp)) {
-                    Text(text = "7", fontSize = 28.sp)
-                }
-                Button(onClick = { /*TODO*/ }, colors = ButtonDefaults.buttonColors(Color(0xFFC3ECD2)), modifier = Modifier
-                    .padding(6.dp)
-                    .width(80.dp)
-                    .height(80.dp)) {
-                    Text(text = "8", fontSize = 28.sp)
-                }
-                Button(onClick = { /*TODO*/ }, colors = ButtonDefaults.buttonColors(Color(0xFFC3ECD2)), modifier = Modifier
-                    .padding(6.dp)
-                    .width(80.dp)
-                    .height(80.dp)) {
-                    Text(text = "9", fontSize = 28.sp)
-                }
-                Button(onClick = { /*TODO*/ }, colors = ButtonDefaults.buttonColors(Color(0xFFC3ECD2)), modifier = Modifier
-                    .padding(6.dp)
-                    .width(80.dp)
-                    .height(80.dp)) {
-                    Text(text = "+", fontSize = 28.sp)
-                }
-            }
-            Row {
-                Button(onClick = { /*TODO*/ }, colors = ButtonDefaults.buttonColors(Color(0xFFC3ECD2)), modifier = Modifier
-                    .padding(6.dp)
-                    .width(80.dp)
-                    .height(80.dp)) {
-                    Text(text = "0", fontSize = 28.sp)
-                }
-                Button(onClick = { /*TODO*/ }, colors = ButtonDefaults.buttonColors(Color(0xFFC3ECD2)), modifier = Modifier
-                    .padding(6.dp)
-                    .width(80.dp)
-                    .height(80.dp)) {
-                    Text(text = ".", fontSize = 28.sp)
-                }
-                Button(onClick = { /*TODO*/ }, colors = ButtonDefaults.buttonColors(Color(0xFFC3ECD2)), modifier = Modifier
-                    .padding(6.dp)
-                    .width(80.dp)
-                    .height(80.dp)) {
-                    Text(text = "%", fontSize = 28.sp)
-                }
-                Button(onClick = { /*TODO*/ }, colors = ButtonDefaults.buttonColors(Color(0xFFC3ECD2)), modifier = Modifier
-                    .padding(6.dp)
-                    .width(80.dp)
-                    .height(80.dp)) {
-                    Text(text = "=", fontSize = 28.sp)
-                }
-            }
+            CalculatorButton("AC", "()", "%", "/")
+            CalculatorButton("1", "2", "3", "x")
+            CalculatorButton("4", "5", "6", "-")
+            CalculatorButton("7", "8", "9", "+")
+            CalculatorButton("0", ".", "%", "=")
+        }
+    }
+}
+
+@Composable
+fun CalculatorButton(firstButton: String, secondButton: String, thirdButton: String, fourthButton: String) {
+    Row() {
+        Button(onClick = { /*TODO*/ }, colors = ButtonDefaults.buttonColors(Color(0xFFC3ECD2)), modifier = Modifier
+            .padding(6.dp)
+            .width(80.dp)
+            .height(80.dp)) {
+            Text(text = firstButton, fontSize = 24.sp)
+        }
+        Button(onClick = { /*TODO*/ }, colors = ButtonDefaults.buttonColors(Color(0xFFC3ECD2)), modifier = Modifier
+            .padding(6.dp)
+            .width(80.dp)
+            .height(80.dp)) {
+            Text(text = secondButton, fontSize = 28.sp)
+        }
+        Button(onClick = { /*TODO*/ }, colors = ButtonDefaults.buttonColors(Color(0xFFC3ECD2)), modifier = Modifier
+            .padding(6.dp)
+            .width(80.dp)
+            .height(80.dp)) {
+            Text(text = thirdButton, fontSize = 28.sp)
+        }
+        Button(onClick = { /*TODO*/ }, colors = ButtonDefaults.buttonColors(Color(0xFFC3ECD2)), modifier = Modifier
+            .padding(6.dp)
+            .width(80.dp)
+            .height(80.dp)) {
+            Text(text = fourthButton, fontSize = 28.sp)
         }
     }
 }
