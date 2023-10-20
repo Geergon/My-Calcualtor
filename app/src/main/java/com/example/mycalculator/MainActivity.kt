@@ -21,6 +21,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -55,6 +59,8 @@ fun CalculatorApp() {
 
 @Composable
 fun CalculatorUi (modifier: Modifier = Modifier) {
+    var counter by remember { mutableStateOf(0) }
+    var counterScreen by remember { mutableStateOf(counter.toString()) }
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
@@ -65,47 +71,64 @@ fun CalculatorUi (modifier: Modifier = Modifier) {
             .fillMaxWidth()
             .fillMaxHeight(0.3f)) {
             Column(horizontalAlignment = Alignment.End, verticalArrangement = Arrangement.Center, modifier = Modifier.fillMaxSize()) {
-                Text(text = "123", fontSize = 70.sp, fontWeight = FontWeight.Bold)
+                Text(text = counterScreen, fontSize = 70.sp, fontWeight = FontWeight.Bold)
             }
         }
         Spacer(modifier = Modifier.height(70.dp))
         Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxWidth()) {
-            CalculatorButton("AC", "()", "%", "/")
-            CalculatorButton("1", "2", "3", "x")
-            CalculatorButton("4", "5", "6", "-")
-            CalculatorButton("7", "8", "9", "+")
-            CalculatorButton("0", ".", "%", "=")
+            Row() {
+                Button(onClick = { counterScreen + 1 }, colors = ButtonDefaults.buttonColors(Color(0xFFC3ECD2)), modifier = Modifier
+                    .padding(6.dp)
+                    .width(80.dp)
+                    .height(80.dp)) {
+                    Text(text = "1", fontSize = 24.sp)
+                }
+                Button(onClick = { counterScreen + "2" }, colors = ButtonDefaults.buttonColors(Color(0xFFC3ECD2)), modifier = Modifier
+                    .padding(6.dp)
+                    .width(80.dp)
+                    .height(80.dp)) {
+                    Text(text = "2", fontSize = 24.sp)
+                }
+//                CalculatorButton("AC", 0xFFC3ECD2, buttonFun = {counterScreen += "1"})
+//                CalculatorButton("()", 0xFFC3ECD2, buttonFun = {counterScreen += "2"})
+//                CalculatorButton("%", 0xFFC3ECD2)
+//                CalculatorButton("/", 0xFFC3ECD2)
+            }
+            Row {
+//                CalculatorButton("1", 0xFFC3ECD2)
+//                CalculatorButton("2", 0xFFC3ECD2)
+//                CalculatorButton("3", 0xFFC3ECD2)
+//                CalculatorButton("x", 0xFFC3ECD2)
+            }
+            Row {
+//                CalculatorButton("4", 0xFFC3ECD2)
+//                CalculatorButton("5", 0xFFC3ECD2)
+//                CalculatorButton("6", 0xFFC3ECD2)
+//                CalculatorButton("-", 0xFFC3ECD2)
+            }
+            Row {
+//                CalculatorButton("7", 0xFFC3ECD2)
+//                CalculatorButton("8", 0xFFC3ECD2)
+//                CalculatorButton("9", 0xFFC3ECD2)
+//                CalculatorButton("+", 0xFFC3ECD2)
+            }
+            Row {
+//                CalculatorButton("0", 0xFFC3ECD2)
+//                CalculatorButton(".", 0xFFC3ECD2)
+//                CalculatorButton("%", 0xFFC3ECD2)
+//                CalculatorButton("=", 0xFFC3ECD2)
+            }
         }
     }
 }
 
 @Composable
-fun CalculatorButton(firstButton: String, secondButton: String, thirdButton: String, fourthButton: String) {
-    Row() {
-        Button(onClick = { /*TODO*/ }, colors = ButtonDefaults.buttonColors(Color(0xFFC3ECD2)), modifier = Modifier
-            .padding(6.dp)
-            .width(80.dp)
-            .height(80.dp)) {
-            Text(text = firstButton, fontSize = 24.sp)
-        }
-        Button(onClick = { /*TODO*/ }, colors = ButtonDefaults.buttonColors(Color(0xFFC3ECD2)), modifier = Modifier
-            .padding(6.dp)
-            .width(80.dp)
-            .height(80.dp)) {
-            Text(text = secondButton, fontSize = 28.sp)
-        }
-        Button(onClick = { /*TODO*/ }, colors = ButtonDefaults.buttonColors(Color(0xFFC3ECD2)), modifier = Modifier
-            .padding(6.dp)
-            .width(80.dp)
-            .height(80.dp)) {
-            Text(text = thirdButton, fontSize = 28.sp)
-        }
-        Button(onClick = { /*TODO*/ }, colors = ButtonDefaults.buttonColors(Color(0xFFC3ECD2)), modifier = Modifier
-            .padding(6.dp)
-            .width(80.dp)
-            .height(80.dp)) {
-            Text(text = fourthButton, fontSize = 28.sp)
-        }
+fun CalculatorButton(text: String, color: Long, buttonFun: (Int) -> Unit )  {
+    Button(onClick = { buttonFun }, colors = ButtonDefaults.buttonColors(Color(color)), modifier = Modifier
+        .padding(6.dp)
+        .width(80.dp)
+        .height(80.dp)) {
+        Text(text = text, fontSize = 24.sp)
     }
 }
 
